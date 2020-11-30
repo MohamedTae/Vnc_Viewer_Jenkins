@@ -84,8 +84,8 @@ public class VncViewerBuildWrapper extends BuildWrapper {
 		DescriptorImpl DESCRIPTOR = Hudson.getInstance().getDescriptorByType(DescriptorImpl.class);
 		String vncServReplaced = Util.replaceMacro(vncServ,build.getEnvironment(listener));
 		int freePort = findFreePort();
-		int startPortNmb = freePort > 0 ? freePort : 8888;
-//		int startPortNmb = 8888;
+		//int startPortNmb = freePort > 0 ? freePort : 8888;
+		int startPortNmb = 8000;
 		Proc noVncProc = null;
 		String lp = String.valueOf(startPortNmb);
 		if (vncServReplaced.isEmpty())
@@ -111,7 +111,7 @@ public class VncViewerBuildWrapper extends BuildWrapper {
 			}
 			String webPath = System.getProperty("java.io.tmpdir") + File.separator + "novnc";
 			LocalLauncher localLauncher = new LocalLauncher(listener);
-			for (int i = 0; i < 1000 ; i++ )
+			for (int i = 0; i < 100 ; i++ )
 			{
 				lp = String.valueOf(startPortNmb + i);
 				noVncProc = localLauncher.launch().stderr(listener.getLogger()).stdout(listener.getLogger()).cmds(webSockifyPath, "--web", webPath,lp,vncServReplaced).start();
