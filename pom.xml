@@ -22,7 +22,7 @@
 	
 	<scm> <connection>scm:git:git://github.com/MohamedTae/${project.artifactId}-plugin.git</connection> 
 		<developerConnection>scm:git:git@github.com:MohamedTae/${project.artifactId}-plugin.git</developerConnection> 
-		<url>http://github.com/MohamedTae/${project.artifactId}-plugin</url> 
+		<url>https://github.com/MohamedTae/${project.artifactId}-plugin</url> 
     <tag>HEAD</tag>
   </scm>
 	<!-- If you want to depend on other plugins: <dependencies> <dependency> 
