@@ -3,14 +3,16 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-    <groupId>org.jenkins-ci.plugins</groupId>
-    <artifactId>plugin</artifactId>
-    <version>2.33</version>
-    <relativePath />
-</parent>
+		<groupId>org.jenkins-ci.plugins</groupId>
+		<artifactId>plugin</artifactId>
+		<!-- Baseline Jenkins version you use to build and test the plugin. Users 
+			must have this version or newer to run. -->
+		<version>1.580.1</version>
+		<relativePath />
+	</parent>
 	<groupId>org.jenkins-ci.plugins</groupId>
-	<artifactId>vncviewer</artifactId>
-	<version>1.9-SNAPSHOT</version>
+	<artifactId>vncviewerdocker</artifactId>
+	<version>1.0-SNAPSHOT</version>
 	<packaging>hpi</packaging>
 
 	<licenses>
@@ -19,16 +21,28 @@
 			<url>http://opensource.org/licenses/MIT</url>
 		</license>
 	</licenses>
-	
-	<scm> <connection>scm:git:git://github.com/MohamedTae/${project.artifactId}-plugin.git</connection> 
-		<developerConnection>scm:git:git@github.com:MohamedTae/${project.artifactId}-plugin.git</developerConnection> 
-		<url>http://github.com/MohamedTae/${project.artifactId}-plugin</url> 
-    <tag>HEAD</tag>
-  </scm>
-	<!-- If you want to depend on other plugins: <dependencies> <dependency> 
-		<groupId>org.jenkins-ci.plugins</groupId> <artifactId>credentials</artifactId> 
-		<version>1.9.4</version> </dependency> </dependencies> -->
 
+	<repositories>
+		<repository>
+			<id>repo.jenkins-ci.org</id>
+			<url>http://repo.jenkins-ci.org/public/</url>
+		</repository>
+	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>repo.jenkins-ci.org</id>
+			<url>http://repo.jenkins-ci.org/public/</url>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-compress</artifactId>
+			<version>1.8.1</version>
+		</dependency>
+	</dependencies>
 	
 	<developers>
 		<developer>
@@ -36,9 +50,12 @@
 			<name>Dimitri Tenenbaum</name>
 			<email>dim.tbaum@gmail.com</email>
 		</developer>
+		<developer>
+			<id>bu</id>
+			<name>Budi Utomo</name>
+			<email>budtmo.os@gmail.com</email>
+		</developer>
 	</developers>
-  
-  <url>http://wiki.jenkins-ci.org/display/JENKINS/VncViewer+Plugin</url>
-  <description>This plugin lets you start HTTP based VNC viewer via HTML link directly from Console output</description>
-	<name>VncViewer Plugin</name>
+
+	<url>https://github.com/budtmo/vncviewer-plugin</url>
 </project>
