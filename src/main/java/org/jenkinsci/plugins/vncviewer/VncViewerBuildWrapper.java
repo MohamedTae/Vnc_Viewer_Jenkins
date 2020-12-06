@@ -85,7 +85,10 @@ public class VncViewerBuildWrapper extends BuildWrapper {
 		String vncServReplaced = Util.replaceMacro(vncServ,build.getEnvironment(listener));
 		int freePort = findFreePort();
 		//int startPortNmb = freePort > 0 ? freePort : 8888;
-		int startPortNmb = 8000;
+		int min = 8000;
+		int max = 8100;
+		int startPortNmb = (int)(Math.random() * (max - min + 1) + min);
+		//int startPortNmb = 8000;
 		Proc noVncProc = null;
 		String lp = String.valueOf(startPortNmb);
 		if (vncServReplaced.isEmpty())
